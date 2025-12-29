@@ -67,7 +67,7 @@ private enum AppTab: Hashable {
     var title: String {
         switch self {
         case .home: "Home"
-        case .insights: "Insights"
+        case .insights: "Insights Page"
         case .cards: "My Cards"
         case .profile: "Profile"
         }
