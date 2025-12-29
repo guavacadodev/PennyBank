@@ -95,14 +95,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1C818ED62F00CEEB00CF558E /* PennyBank */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1C818EF82F00CEED00CF558E /* Build configuration list for PBXNativeTarget "PennyBank" */;
-			buildPhases = (
-				1C818ED32F00CEEB00CF558E /* Sources */,
-				1C818ED42F00CEEB00CF558E /* Frameworks */,
-				1C818ED52F00CEEB00CF558E /* Resources */,
-			);
+			1C818ED62F00CEEB00CF558E /* PennyBank */ = {
+				isa = PBXNativeTarget;
+				buildConfigurationList = 1C818EF82F00CEED00CF558E /* Build configuration list for PBXNativeTarget "PennyBank" */;
+				buildPhases = (
+					D0F7A2F42F1B3C4D00E5F6A7 /* Generate NotebookLM Bundle */,
+					1C818ED32F00CEEB00CF558E /* Sources */,
+					1C818ED42F00CEEB00CF558E /* Frameworks */,
+					1C818ED52F00CEEB00CF558E /* Resources */,
+				);
 			buildRules = (
 			);
 			dependencies = (
@@ -229,12 +230,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+	/* End PBXResourcesBuildPhase section */
 
-/* Begin PBXSourcesBuildPhase section */
-		1C818ED32F00CEEB00CF558E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+	/* Begin PBXShellScriptBuildPhase section */
+			D0F7A2F42F1B3C4D00E5F6A7 /* Generate NotebookLM Bundle */ = {
+				isa = PBXShellScriptBuildPhase;
+				alwaysOutOfDate = 1;
+				buildActionMask = 2147483647;
+				files = (
+				);
+				inputPaths = (
+				);
+				name = "Generate NotebookLM Bundle";
+				outputPaths = (
+				);
+				runOnlyForDeploymentPostprocessing = 0;
+				shellPath = /bin/sh;
+				shellScript = "case \"$CONFIGURATION\" in\n  Debug*) ;;\n  *) exit 0 ;;\nesac\n\nNOTEBOOKLM_EXPORT_TO_DRIVE=1 /bin/bash \"$SRCROOT/scripts/notebooklm_prepare_upload.sh\" --bundle\n";
+				showEnvVarsInLog = 0;
+			};
+	/* End PBXShellScriptBuildPhase section */
+
+	/* Begin PBXSourcesBuildPhase section */
+			1C818ED32F00CEEB00CF558E /* Sources */ = {
+				isa = PBXSourcesBuildPhase;
+				buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,17 +410,20 @@
 			};
 			name = Release;
 		};
-		1C818EF92F00CEED00CF558E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 54AH6ZQMC2;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+			1C818EF92F00CEED00CF558E /* Debug */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+					ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+					CODE_SIGN_STYLE = Automatic;
+					CURRENT_PROJECT_VERSION = 1;
+					DEVELOPMENT_TEAM = 54AH6ZQMC2;
+					ENABLE_USER_SCRIPT_SANDBOXING = NO;
+					ENABLE_PREVIEWS = YES;
+					GENERATE_INFOPLIST_FILE = YES;
+					INFOPLIST_KEY_NSCameraUsageDescription = "用于扫描二维码。";
+					INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "用于从相册选择二维码图片。";
+					INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -432,6 +455,8 @@
 				DEVELOPMENT_TEAM = 54AH6ZQMC2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "用于扫描二维码。";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "用于从相册选择二维码图片。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
